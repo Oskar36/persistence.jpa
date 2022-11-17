@@ -22,7 +22,7 @@
 			<property name="javax.persistence.jdbc.driver"   value="com.mysql.jdbc.Driver" />			
 			<property name="javax.persistence.jdbc.url"      value="jdbc:mysql://localhost/jpa" />			
 			<property name="javax.persistence.jdbc.user"     value="root" />
-			<property name="javax.persistence.jdbc.password" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
 
 			<!--  posibles valores:
 				validate: valide que el esquema coincida, no realice cambios en el esquema de la base de datos, probablemente lo desee para la producción.
@@ -31,7 +31,7 @@
 				create-drop : crea el esquema como en create anterior, pero también suelte el esquema al final de la sesión. Esto es genial en el desarrollo temprano o para pruebas. 
 			-->
 			
-			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
 
 			<!-- los para mostar las sql en consola -->
 			<property name="hibernate.show_sql" value="true" />

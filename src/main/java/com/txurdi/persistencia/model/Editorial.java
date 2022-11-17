@@ -1,16 +1,17 @@
 package com.txurdi.persistencia.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="editorial")
 public class Editorial  implements Serializable {
 	
 	
@@ -22,15 +23,24 @@ public class Editorial  implements Serializable {
 		
 	private String nombre;
 	
+	@OneToMany(mappedBy = "editorial")
+	private Set<Libro> libros;
+	
 	public Editorial() {
 		super();
 		this.id = 0;
 		this.nombre = "";
+		this.libros= new HashSet<Libro>();
 	}
-
 	public Editorial(String nombre) {
 		this();
 		this.nombre = nombre;
+	}
+	
+	public Editorial(String nombre, Set<Libro> libros) {
+		this();
+		this.nombre = nombre;
+		this.libros= libros;
 	}
 
 	public int getId() {
@@ -47,6 +57,14 @@ public class Editorial  implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Set<Libro> getLibros() {
+		return libros;
+	}
+
+	public void setLibros(Set<Libro> libros) {
+		this.libros = libros;
 	}
 
 	@Override
