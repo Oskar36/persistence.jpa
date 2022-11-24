@@ -31,7 +31,7 @@
 				create-drop : crea el esquema como en create anterior, pero también suelte el esquema al final de la sesión. Esto es genial en el desarrollo temprano o para pruebas. 
 			-->
 			
-			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 
 			<!-- los para mostar las sql en consola -->
 			<property name="hibernate.show_sql" value="true" />

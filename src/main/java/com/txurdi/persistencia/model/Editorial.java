@@ -4,11 +4,15 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="editorial")
@@ -20,7 +24,8 @@ public class Editorial  implements Serializable {
 	@Id
 	@GeneratedValue
 	private int id;
-		
+	
+	@Column(unique = true)
 	private String nombre;
 	
 	@OneToMany(mappedBy = "editorial")
@@ -36,7 +41,11 @@ public class Editorial  implements Serializable {
 		this();
 		this.nombre = nombre;
 	}
-	
+	public Editorial(int id,String nombre) {
+		this();
+		this.nombre = nombre;
+		this.id=id;
+	}
 	public Editorial(String nombre, Set<Libro> libros) {
 		this();
 		this.nombre = nombre;
